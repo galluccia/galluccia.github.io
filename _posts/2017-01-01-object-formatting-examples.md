@@ -1,20 +1,23 @@
 ---
-title:  "Object formatting examples"
+title:  "Julia vs. Pandas"
 categories: example
 mathjax: true
 ---
 
-Embed code by putting `{{ "{% highlight language " }}%}` `{{ "{% endhighlight " }}%}` blocks around it.
+DataFrame constructor in Julia
 
-{% highlight c %}
+{% highlight julia %}
 
-static void asyncEnabled(Dict* args, void* vAdmin, String* txid, struct Allocator* requestAlloc)
-{
-    struct Admin* admin = Identity_check((struct Admin*) vAdmin);
-    int64_t enabled = admin->asyncEnabled;
-    Dict d = Dict_CONST(String_CONST("asyncEnabled"), Int_OBJ(enabled), NULL);
-    Admin_sendMessage(&d, txid, admin);
-}
+#!/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia
+println("Hello word")
+
+using DataFrames
+df = DataFrame(
+    A = 1:4,
+    B = ["M", "F", "F", "M"]
+)
+println(df)def get_data():
+
 
 {% endhighlight %}
 

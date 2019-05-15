@@ -1,4 +1,4 @@
-title: "Personal Blog"
+title: "Anthony Gallucci"
 author: "Anthony Gallucci"
 description: "My name is Anthony and I am Python devloper looking to understand more about the world through data"
 lang: "en"
@@ -20,8 +20,8 @@ navigation:                  # (optional) site navigation in the header
 #  - title: "https://"       # linking external sites is also supported
 
 icons:                       # (optional) icons in the header, see http://fontawesome.com/icons
-  envelope: "mailto:niklasbuschmann@users.noreply.github.com"
-  github: "https://github.com/niklasbuschmann/contrast"
+  envelope: "mailto:galluccia@gmail.com"
+  github: "https://github.com/galluccia"
   rss: "/contrast/feed.xml"
 
 # Pagination
