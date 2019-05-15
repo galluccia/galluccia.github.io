@@ -1,29 +1,26 @@
 ---
-title: "About"
+title: "about"
 permalink: "/about/"
 ---
 
-# Anthony Gallucci
-
-## Programming Skills:
   - Languages
-    - Python
-    - SQL
-    - R
+    - `Python`
+    - `SQL`
+    - `R`
   - Front End
-    - CSS
-    - HTML
-    - SASS
+    - `CSS`
+    - `HTML`
+    - `SASS`
 
   - Database
-    - Vertica
-    - MSSQL
-    - PostgreSQL
+    - `Vertica`
+    - `MSSQL`
+    - `PostgreSQL`
   - Command Line
-    - Unix
-    - Bash
-    - Zshell
+    - `Unix`
+    - `Bash`
+    - `Zshell`
   - OS
-    - macOS
-    - PC
-    - Lunix
+    - `macOS`
+    - `PC`
+    - `Lunix`
