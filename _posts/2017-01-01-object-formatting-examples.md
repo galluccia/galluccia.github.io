@@ -16,8 +16,7 @@ df = DataFrame(
     A = 1:4,
     B = ["M", "F", "F", "M"]
 )
-println(df)def get_data():
-
+println(df)
 
 {% endhighlight %}
 
