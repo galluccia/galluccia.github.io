@@ -4,7 +4,7 @@ description: "My name is Anthony and I am Python devloper looking to understand 
 lang: "en"
 
 # Page settings
-permalink: /:title/          # see https://jekyllrb.com/docs/permalinks/
+permalink: /:about/          # see https://jekyllrb.com/docs/permalinks/
 date_format: "%B %d, %Y"     # see http://shopify.github.io/liquid/filters/date/
 hide_title: false            # remove site heading in the header
 post_footer: true            # show previous and next links at the end of each post
@@ -12,7 +12,7 @@ post_footer: true            # show previous and next links at the end of each p
 # Theme settings
 dark_theme: true            # use the dark mode as default
 dark_header: true           # keep the header dark
-style: minimal             # use a simpler style inspired by the minima theme
+style: minimal              # use a simpler style inspired by the minima theme
 
 navigation:                  # (optional) site navigation in the header
 #  - index.html
