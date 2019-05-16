@@ -4,10 +4,10 @@
 <title>Julia vs. Pandas | Anthony Gallucci</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="DataFrame constructor in Julia #!/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia println(&quot;Hello word&quot;) using DataFrames df = DataFrame( A = 1:...">
+<meta name="description" content="In this blog post I will outline the the performance of Pandas to Julia. For those of you who may not know Julia is a dynamically-typed high-level programmin...">
 <meta name="author" content="Anthony Gallucci">
 <meta name="generator" content="Jekyll v3.8.5">
-<link rel="canonical" href="http://localhost:4000/object-formatting-examples/">
+<link rel="canonical" href="http://localhost:4000/pandas-versus-julia/">
 <link rel="stylesheet" href="/assets/css/index.css">
 <link rel="stylesheet" href="/assets/css/theme.css">
 <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Anthony Gallucci" />
@@ -46,20 +46,39 @@
 </header>
 
 <article>
-  <header><h1><a href="/object-formatting-examples/">Julia vs. Pandas</a></h1>
-    <time datetime="2017-01-01T00:00:00-05:00">January 01, 2017</time>
+  <header><h1><a href="/pandas-versus-julia/">Julia vs. Pandas</a></h1>
+    <time datetime="2019-05-15T00:00:00-04:00">May 15, 2019</time>
   </header>
+<p>In this blog post I will outline the the performance of Pandas to Julia. For those of you who may not know <a href="https://julialang.org/">Julia</a> is a dynamically-typed high-level programming language specifically designed for <strong>high performance</strong>. The offical site provides us with this speed benchmark as seen below:
+<img src="https://julialang.org/images/benchmarks.svg" alt="Benchmarks" /></p>
+
+<p>Although you may not know the speciics of the nechmakrs shown in the chart, it is clear that Julia is sginficantly more performant than Python. Let’s put it to the test!</p>
+
+<p>To make this presentation as practical as possible I will cinduct this speed test using a real world example. “Crypto Currency Price Corrleations” and to do this I will leverage pannel data tehcniques, Pandas DataFrames in Python and DataFrames in Julia.</p>
+
+<p>Let’s get into the code.</p>
+
 <p>DataFrame constructor in Julia</p>
 
-<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="c">#!/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia</span>
-<span class="n">println</span><span class="x">(</span><span class="s">"Hello word"</span><span class="x">)</span>
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="k">using</span> <span class="n">DataFrames</span>
 
-<span class="k">using</span> <span class="n">DataFrames</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="x">(</span>
     <span class="n">A</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">4</span><span class="x">,</span>
     <span class="n">B</span> <span class="o">=</span> <span class="x">[</span><span class="s">"M"</span><span class="x">,</span> <span class="s">"F"</span><span class="x">,</span> <span class="s">"F"</span><span class="x">,</span> <span class="s">"M"</span><span class="x">]</span>
 <span class="x">)</span>
 <span class="n">println</span><span class="x">(</span><span class="n">df</span><span class="x">)</span></code></pre></figure>
+
+<p>DataFrame constructor in Pandas</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+      <span class="s">"A"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>  
+      <span class="s">"B"</span><span class="p">:</span> <span class="p">[</span><span class="s">"M"</span><span class="p">,</span> <span class="s">"F"</span><span class="p">,</span> <span class="s">"F"</span><span class="p">,</span> <span class="s">"M"</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code></pre></figure>
 
 <h2 id="mathjax">MathJax</h2>
 
@@ -110,8 +129,8 @@
 
 
 <footer>
-  <a class="gray" href="/text-formatting-examples/">« Text formatting examples</a>
   <span></span>
+  <a class="gray" href="/welcome-to-jekyll/">Welcome to Jekyll »</a>
 </footer>
 
 

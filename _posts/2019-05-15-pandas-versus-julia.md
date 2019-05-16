@@ -4,14 +4,22 @@ categories: example
 mathjax: true
 ---
 
+In this blog post I will outline the the performance of Pandas to Julia. For those of you who may not know [Julia](https://julialang.org/) is a dynamically-typed high-level programming language specifically designed for **high performance**. The offical site provides us with this speed benchmark as seen below:
+![Benchmarks](https://julialang.org/images/benchmarks.svg)
+
+Although you may not know the speciics of the nechmakrs shown in the chart, it is clear that Julia is sginficantly more performant than Python. Let's put it to the test!
+
+To make this presentation as practical as possible I will cinduct this speed test using a real world example. "Crypto Currency Price Corrleations" and to do this I will leverage pannel data tehcniques, Pandas DataFrames in Python and DataFrames in Julia.
+
+Let's get into the code.
+
+
 DataFrame constructor in Julia
 
 {% highlight julia %}
 
-#!/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia
-println("Hello word")
-
 using DataFrames
+
 df = DataFrame(
     A = 1:4,
     B = ["M", "F", "F", "M"]
@@ -20,6 +28,21 @@ println(df)
 
 {% endhighlight %}
 
+DataFrame constructor in Pandas
+
+{% highlight python %}
+
+import pandas as pd
+
+df = DataFrame(
+    {
+      "A": [1, 2, 3, 4],  
+      "B": ["M", "F", "F", "M"]
+    }
+)
+print(df)
+
+{% endhighlight %}
 
 ## MathJax
 

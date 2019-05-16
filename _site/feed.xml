@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-05-14T23:33:01-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Anthony Gallucci</title><subtitle>My name is Anthony and I am Python devloper looking to understand more about the world through data</subtitle><author><name>Anthony Gallucci</name></author><entry><title type="html">Welcome to Jekyll</title><link href="http://localhost:4000/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll" /><published>2017-03-01T00:00:00-05:00</published><updated>2017-03-01T00:00:00-05:00</updated><id>http://localhost:4000/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-05-15T19:14:19-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Anthony Gallucci</title><subtitle>My name is Anthony and I am Python devloper looking to understand more about the world through data</subtitle><author><name>Anthony Gallucci</name></author><entry><title type="html">Julia vs. Pandas</title><link href="http://localhost:4000/pandas-versus-julia/" rel="alternate" type="text/html" title="Julia vs. Pandas" /><published>2019-05-15T00:00:00-04:00</published><updated>2019-05-15T00:00:00-04:00</updated><id>http://localhost:4000/pandas-versus-julia</id><content type="html" xml:base="http://localhost:4000/pandas-versus-julia/">&lt;p&gt;In this blog post I will outline the the performance of Pandas to Julia. For those of you who may not know &lt;a href=&quot;https://julialang.org/&quot;&gt;Julia&lt;/a&gt; is a dynamically-typed high-level programming language specifically designed for &lt;strong&gt;high performance&lt;/strong&gt;. The offical site provides us with this speed benchmark as seen below:
+&lt;img src=&quot;https://julialang.org/images/benchmarks.svg&quot; alt=&quot;Benchmarks&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Although you may not know the speciics of the nechmakrs shown in the chart, it is clear that Julia is sginficantly more performant than Python. Let’s put it to the test!&lt;/p&gt;
+
+&lt;p&gt;To make this presentation as practical as possible I will cinduct this speed test using a real world example. “Crypto Currency Price Corrleations” and to do this I will leverage pannel data tehcniques, Pandas DataFrames in Python and DataFrames in Julia.&lt;/p&gt;
+
+&lt;p&gt;Let’s get into the code.&lt;/p&gt;
+
+&lt;p&gt;DataFrame constructor in Julia&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrames&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;DataFrame constructor in Pandas&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;  
+      &lt;span class=&quot;s&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;mathjax&quot;&gt;MathJax&lt;/h2&gt;
+
+&lt;p&gt;You can enable MathJax by setting &lt;code class=&quot;highlighter-rouge&quot;&gt;mathjax: true&lt;/code&gt; on a page or globally in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. Some examples:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Euler%27s_formula&quot;&gt;Euler’s formula&lt;/a&gt; relates the  complex exponential function to the trigonometric functions.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{ix}=cos(x)+isin(x)&lt;/script&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Lagrangian_mechanics&quot;&gt;Euler-Lagrange&lt;/a&gt; differential equation is the fundamental equation of calculus of variations.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac{\partial L}{\partial \dot{q}} \right ) = \frac{\partial L}{\partial q}&lt;/script&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation&quot;&gt;Schrödinger equation&lt;/a&gt; describes how the quantum state of a quantum system changes with time.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;i\hbar\frac{\partial}{\partial t} \Psi(\mathbf{r},t) = \left [ \frac{-\hbar^2}{2\mu}\nabla^2 + V(\mathbf{r},t)\right ] \Psi(\mathbf{r},t)&lt;/script&gt;
+
+&lt;h2 id=&quot;images&quot;&gt;Images&lt;/h2&gt;
+
+&lt;p&gt;Upload an image to the &lt;em&gt;assets&lt;/em&gt; folder and embed it with &lt;code class=&quot;highlighter-rouge&quot;&gt;![title](/assets/name.jpg))&lt;/code&gt;. Keep in mind that the path needs to be adjusted if Jekyll is run inside a subfolder.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;.large&lt;/code&gt; wrapper can be used to increase the width of an image or iframe.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/4943215/55412447-bcdb6c80-5567-11e9-8d12-b1e35fd5e50c.jpg&quot; alt=&quot;Flower&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://unsplash.com/photos/iGrsa9rL11o&quot;&gt;Flower&lt;/a&gt; by Tj Holowaychuk&lt;/p&gt;
+
+&lt;div class=&quot;large&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/4943215/55412536-edbba180-5567-11e9-9c70-6d33bca3f8ed.jpg&quot; alt=&quot;Swiss Alps&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://unsplash.com/photos/u0DmxB76uF4&quot;&gt;Swiss Alps&lt;/a&gt; by René Reichelt&lt;/p&gt;
+
+&lt;h2 id=&quot;embedded-content&quot;&gt;Embedded content&lt;/h2&gt;
+
+&lt;p&gt;You can also embed a lot of stuff, for example from YouTube. To scale the video to full width use the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div class=&quot;embed&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt; wrapper around the iframe.&lt;/p&gt;
+
+&lt;div class=&quot;embed&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/_C0A5zX-iqM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;</content><author><name>Anthony Gallucci</name></author><summary type="html">In this blog post I will outline the the performance of Pandas to Julia. For those of you who may not know Julia is a dynamically-typed high-level programming language specifically designed for high performance. The offical site provides us with this speed benchmark as seen below: Although you may not know the speciics of the nechmakrs shown in the chart, it is clear that Julia is sginficantly more performant than Python. Let’s put it to the test! To make this presentation as practical as possible I will cinduct this speed test using a real world example. “Crypto Currency Price Corrleations” and to do this I will leverage pannel data tehcniques, Pandas DataFrames in Python and DataFrames in Julia. Let’s get into the code.</summary></entry><entry><title type="html">Welcome to Jekyll</title><link href="http://localhost:4000/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll" /><published>2017-03-01T00:00:00-05:00</published><updated>2017-03-01T00:00:00-05:00</updated><id>http://localhost:4000/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
@@ -115,52 +182,4 @@
       &lt;li&gt;Second nested item&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anthony Gallucci</name></author><summary type="html">With Markdown, it is possible to emphasize words by making them italicized, using astericks or underscores, or making them bold, using double astericks or double underscores. Of course, you can combine those two formats, with both bold and italicized text, using any combination of the above syntax. You can also add a strikethrough to text using a double tilde. You can create inline links by wrapping link text in square brackets [ ], and then wrapping the URL in parentheses ( ). For example you can link your home page.</summary></entry><entry><title type="html">Julia vs. Pandas</title><link href="http://localhost:4000/object-formatting-examples/" rel="alternate" type="text/html" title="Julia vs. Pandas" /><published>2017-01-01T00:00:00-05:00</published><updated>2017-01-01T00:00:00-05:00</updated><id>http://localhost:4000/object-formatting-examples</id><content type="html" xml:base="http://localhost:4000/object-formatting-examples/">&lt;p&gt;DataFrame constructor in Julia&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello word&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrames&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;mathjax&quot;&gt;MathJax&lt;/h2&gt;
-
-&lt;p&gt;You can enable MathJax by setting &lt;code class=&quot;highlighter-rouge&quot;&gt;mathjax: true&lt;/code&gt; on a page or globally in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. Some examples:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Euler%27s_formula&quot;&gt;Euler’s formula&lt;/a&gt; relates the  complex exponential function to the trigonometric functions.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{ix}=cos(x)+isin(x)&lt;/script&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Lagrangian_mechanics&quot;&gt;Euler-Lagrange&lt;/a&gt; differential equation is the fundamental equation of calculus of variations.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac{\partial L}{\partial \dot{q}} \right ) = \frac{\partial L}{\partial q}&lt;/script&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation&quot;&gt;Schrödinger equation&lt;/a&gt; describes how the quantum state of a quantum system changes with time.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;i\hbar\frac{\partial}{\partial t} \Psi(\mathbf{r},t) = \left [ \frac{-\hbar^2}{2\mu}\nabla^2 + V(\mathbf{r},t)\right ] \Psi(\mathbf{r},t)&lt;/script&gt;
-
-&lt;h2 id=&quot;images&quot;&gt;Images&lt;/h2&gt;
-
-&lt;p&gt;Upload an image to the &lt;em&gt;assets&lt;/em&gt; folder and embed it with &lt;code class=&quot;highlighter-rouge&quot;&gt;![title](/assets/name.jpg))&lt;/code&gt;. Keep in mind that the path needs to be adjusted if Jekyll is run inside a subfolder.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;.large&lt;/code&gt; wrapper can be used to increase the width of an image or iframe.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/4943215/55412447-bcdb6c80-5567-11e9-8d12-b1e35fd5e50c.jpg&quot; alt=&quot;Flower&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://unsplash.com/photos/iGrsa9rL11o&quot;&gt;Flower&lt;/a&gt; by Tj Holowaychuk&lt;/p&gt;
-
-&lt;div class=&quot;large&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/4943215/55412536-edbba180-5567-11e9-9c70-6d33bca3f8ed.jpg&quot; alt=&quot;Swiss Alps&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://unsplash.com/photos/u0DmxB76uF4&quot;&gt;Swiss Alps&lt;/a&gt; by René Reichelt&lt;/p&gt;
-
-&lt;h2 id=&quot;embedded-content&quot;&gt;Embedded content&lt;/h2&gt;
-
-&lt;p&gt;You can also embed a lot of stuff, for example from YouTube. To scale the video to full width use the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div class=&quot;embed&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt; wrapper around the iframe.&lt;/p&gt;
-
-&lt;div class=&quot;embed&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/_C0A5zX-iqM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;</content><author><name>Anthony Gallucci</name></author><summary type="html">DataFrame constructor in Julia #!/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia println(&quot;Hello word&quot;) using DataFrames df = DataFrame( A = 1:4, B = [&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;] ) println(df)</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Anthony Gallucci</name></author><summary type="html">With Markdown, it is possible to emphasize words by making them italicized, using astericks or underscores, or making them bold, using double astericks or double underscores. Of course, you can combine those two formats, with both bold and italicized text, using any combination of the above syntax. You can also add a strikethrough to text using a double tilde. You can create inline links by wrapping link text in square brackets [ ], and then wrapping the URL in parentheses ( ). For example you can link your home page.</summary></entry></feed>
